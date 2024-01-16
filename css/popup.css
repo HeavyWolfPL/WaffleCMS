@@ -1,0 +1,124 @@
+/* ##########################
+          Popup
+########################## */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .popup form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .popup form {
+        width: 75%;
+    }
+} */
+
+/* .popup label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+} */
+
+/* .popup input:active, .popup input:focus {
+    outline: none;
+}
+
+.popup input[type="text"],
+.popup input[type="email"],
+.popup input[type="number"],
+.popup input[type="password"],
+.popup textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+
+    background-color: rgba(100, 100, 100, 0.7);
+    overflow-y: auto;
+    resize: none;
+}
+
+.popup textarea {
+    height: 10em;
+}
+
+.popup input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup input[type="number"]::-webkit-inner-spin-button,
+.popup input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+} */
+
+
+
+/* ##########################
+        Alert Box
+########################## */
+
+#alertContainer .alert {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 9999; /* Ensures the alerts are on top */
+}
+
+#alertContainer .alert.success {
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+#alertContainer .alert.info {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+#alertContainer .alert.warning {
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
+
+#alertContainer .alert.error {
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+#alertContainer .alert .btn_text {
+    width: auto;
+}
+
+
+  

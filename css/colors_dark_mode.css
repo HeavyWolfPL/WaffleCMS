@@ -1,0 +1,56 @@
+* {
+    --font_color: #eee;
+    --font_color_rgb: 238, 238, 238;
+    --font_color_hover: #574f4f;
+
+    --link_color: #ddd;
+    --link_color_rgb: 221, 221, 221;
+    --link_active_color: #436ef7;
+    --link_active_color_rgb: 67, 110, 247;
+
+    --icon_active_color: #ff6347;
+    --icon_active_color_rgb: 255, 99, 71;
+
+    --header_color: #111;
+    --sidebar_color: #222;
+    --body_color: #292929;
+    --body_color_hover: #333;
+    --body_color_hover_rgb: 51, 51, 51;
+    --footer_color: #050505;
+
+    --success_color: #1a8b1a;
+    --warning_color: #ff8c00;
+    --error_color: #ca0000;
+
+    --dark_gray: #0d111d;
+    --dark_gray-rgb: 13, 17, 29;
+    --light_gray: #ddd;
+    --light_gray-rgb: 221, 221, 221;
+
+    --light-blue: #436ef7;
+    --light-blue-rgb: 67, 110, 247;
+    --blue: #2c39ff;
+    --blue-rgb: 44, 57, 255;
+    --dark-blue: #000665;
+    --dark-blue-rgb: 0, 6, 101;
+
+    --green: #00ca00;
+    --green-rgb: 0, 202, 0;
+    --red: #ca0000;
+    --red-rgb: 202, 0, 0;
+    --orange: #ff8c00;
+    --orange-rgb: 255, 140, 0;
+}
+
+
+/* ##########################
+        Buttons
+########################## */
+
+.btn {
+    background-color: rgba(100, 100, 100, 0.7);
+}
+
+.btn_icon {
+    background: rgba(0, 0, 0, 0.2);
+}

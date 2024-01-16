@@ -1,0 +1,23 @@
+# Config
+*/config.php
+
+# Logs
+logs/*
+
+# Uploads
+uploads/*
+
+
+
+
+
+
+
+
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store

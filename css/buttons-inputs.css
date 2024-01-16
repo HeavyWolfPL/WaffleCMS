@@ -1,0 +1,253 @@
+* {
+    --patreon_color: #F96854;
+    --patreon_color_rgb: 249, 104, 84;
+
+    --discord_color: #7289DA;
+    --discord_color_rgb: 114, 137, 218;
+
+    --steam_color: #171d25;
+    --steam_color_rgb: 23, 29, 37;
+
+    transition: all 500ms ease;
+}
+
+/* ##########################
+            Brands
+########################## */
+
+.steam_btn {
+    background-color: var(--steam_color);
+}
+
+.patreon_btn {
+    background-color: var(--patreon_color);
+}
+
+.discord_btn {
+    background-color: var(--discord_color);
+}
+
+.red_btn {
+    background-color: var(--red);
+}
+
+.green_btn {
+    background-color: var(--green);
+}
+
+/* ##########################
+            Button
+########################## */
+
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: fit-content;
+    width: calc(80% + 250px - 100%);
+    max-width: 100%;
+    height: 36px;
+
+    border-radius: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+
+    font-size: 14.0px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    white-space: nowrap;
+    line-height: 36px;
+    
+    border: none;
+    color: white;
+
+    margin: 0.5em 0;
+}
+
+.no_text_btn {
+    width: auto;
+}
+
+.btn:hover .btn_icon,
+.btn:hover .btn_text {
+    backdrop-filter: brightness(1.2) saturate(1.10);
+}
+
+.btn_icon {
+    display: table-cell;
+    height: 36px;
+    min-width: 36px;
+
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+
+    font-size: 18px;
+}
+
+.btn_text {
+    display: table-cell;
+    width: 100%;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 1em;
+}
+
+.btns-horizontal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btns-horizontal .btn {
+    margin: 0.5em 0.5em;
+}
+
+/* ##########################
+        Search Button
+########################## */
+
+.btn.search_btn {
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn.search_btn input.btn_input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.btn.search_btn input.btn_input::placeholder {
+    color: rgba(var(--link_color_rgb), 0.7);
+}
+
+
+
+/* ##########################
+            Inputs
+########################## */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    margin: 25px 0;
+    height: auto;
+    background-color: var(--body_color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(var(--dark_gray-rgb), 0.5);
+}
+
+.form-container h1 {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container button {
+    margin-top: 1em;
+}
+
+.input-container {
+    text-align: center;
+}
+
+.input-container i {
+    margin-right: 0.25em;
+}
+
+.input-container input,
+.input-container textarea {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--body_color);
+    color: rgba(var(--font_color_rgb), 0.5);
+    outline: none;
+    box-shadow: 0 0 10px rgba(var(--dark_gray-rgb), 0.5);
+}
+
+.input-container textarea {
+    resize: none;
+    width: 100%;
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+    filter: brightness(0.9);
+    color: var(--font_color);
+}
+
+.input-container:focus-within i {
+    filter: brightness(0.7);
+}
+
+.input-container input[type="file"] {
+    text-align-last: center;
+}
+
+.input-container input::file-selector-button {
+    display: none;
+}
+
+.form-container .error {
+    margin-top: 1em;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: var(--error_color);
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(var(--dark_gray-rgb), 0.5);
+
+    font-size: 14px;
+}
+
+.form-container .success {
+    margin-top: 1em;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: var(--success_color);
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(var(--dark_gray-rgb), 0.5);
+
+    font-size: 14px;
+}
+
+/* Passwords */
+.password-container {
+    position: relative;
+    display: inline-block;
+}
+
+.password-container input#password {
+    padding-right: 30px; /* Adjust the value to leave space for the icon */
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px; /* Adjust the value to position the icon as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(var(--font_color_rgb), 0.5);
+}
+
+.password-container i:hover,
+.password-container i.active, 
+.password-container input:focus + i {
+    color: var(--font_color);
+}
