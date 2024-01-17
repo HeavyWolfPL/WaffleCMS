@@ -1,4 +1,15 @@
-// import { sendAlert } from "./functions";
+/* *********************************
+    *   File used for AJAXs   *
+    * Used for AJAX functions *
+    * 
+    *   author:  Wafelowski   *
+********************************* */
+
+
+
+/* *********************************
+    * Frontend User functions *
+********************************* */
 
 /**
  * Updates the theme by sending a POST request to the server, toggling the current theme and updating the theme toggle button
@@ -39,6 +50,12 @@ function updateTheme(el) { // BUG: Not all theme switch buttons are updated
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('updateTheme=true&currentTheme=' + currentTheme);
 }
+
+
+
+/* *********************************
+        * Post functions *
+********************************* */
 
 function likePost(post_id, user_id) {
     event.preventDefault();
@@ -384,6 +401,10 @@ function hideComment(comment_id) {
 }
 
 
+/* *********************************
+        * System functions *
+******************************* */
+
 function contactForm() {
     event.preventDefault();
     let xhr = new XMLHttpRequest();
@@ -413,6 +434,11 @@ function contactForm() {
     xhr.open('POST', site_url + '/contact.php', true);
     xhr.send(formData);
 }
+
+/* *********************************
+        * Login and Signup *
+        *    functions     *
+********************************* */
 
 function logoutUser() {
     event.preventDefault();
