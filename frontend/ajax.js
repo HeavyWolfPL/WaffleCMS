@@ -440,6 +440,110 @@ function contactForm() {
         *    functions     *
 ********************************* */
 
+function loginUser() {
+    event.preventDefault();
+    let xhr = new XMLHttpRequest();
+    
+    let loginForm = document.getElementById('loginForm');
+    let login = loginForm.querySelector('#login_login');
+    let password = loginForm.querySelector('#login_password');
+
+    let formData = new FormData(loginForm);
+    formData.append('ajax', 'true');
+    formData.append('loginUser', 'true');
+
+    if (login.value == '' || login.value == undefined || login.value == 'undefined' || login.value == false || login.value == 'false') {
+        sendAlert('error', 'Login nie może być pusty.');
+        return;
+    } else if (password.value == '' || password.value == undefined || password.value == 'undefined' || password.value == false || password.value == 'false') {
+        sendAlert('error', 'Hasło nie może być puste.');
+        return;
+    }
+
+    formData.append('login', login.value);
+    formData.append('password', password.value);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                sendAlert('success', 'Zalogowano. Przekierowuję...');
+                console.log('[CMS] Zalogowano!');
+
+                setTimeout(function() {
+                    window.location.href = site_url;
+                }, 3000);
+            } else if (xhr.status === 401) {
+                sendAlert('error', 'Niepoprawny login lub hasło.');
+                console.log('[CMS] Niepoprawny login lub hasło.');
+            } else {
+                sendAlert('error', 'Wystąpił błąd podczas logowania.');
+                console.log('[CMS] Wystąpił błąd.');
+            }
+        }
+    };
+
+    xhr.open('POST', site_url + '/backend/login.php', true);
+    xhr.send(formData);
+}
+
+function signUpUser() {
+    event.preventDefault();
+    let xhr = new XMLHttpRequest();
+    
+    let signUpForm = document.getElementById('signUpForm');
+    let login = signUpForm.querySelector('#signup_login');
+    let password = signUpForm.querySelector('#signup_password');
+    let repeatPassword = signUpForm.querySelector('#signup_repeat_password');
+
+    let formData = new FormData(signUpForm);
+    formData.append('ajax', 'true');
+    formData.append('signUpUser', 'true');
+
+    if (login.value == '' || login.value == undefined || login.value == 'undefined' || login.value == false || login.value == 'false') {
+        sendAlert('error', 'Login nie może być pusty.');
+        return;
+    } else if (password.value == '' || password.value == undefined || password.value == 'undefined' || password.value == false || password.value == 'false') {
+        sendAlert('error', 'Hasło nie może być puste.');
+        return;
+    } else if (repeatPassword.value == '' || repeatPassword.value == undefined || repeatPassword.value == 'undefined' || repeatPassword.value == false || repeatPassword.value == 'false') {
+        sendAlert('error', 'Hasło należy powtórzyć.');
+        return;
+    } else if (password.value != repeatPassword.value) {
+        sendAlert('error', 'Hasła nie są takie same.');
+        return;
+    }
+
+    formData.append('login', login.value);
+    formData.append('password', password.value);
+    formData.append('repeat_password', repeatPassword.value);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                sendAlert('success', 'Zarejestrowano. Przekierowuję...');
+                console.log('[CMS] Zarejestrowano!');
+
+                setTimeout(function() {
+                    window.location.href = site_url;
+                }, 3000);
+            } else if (xhr.status === 401) {
+                sendAlert('error', 'Niepoprawny login lub hasło.');
+                console.log('[CMS] Niepoprawny login lub hasło.');
+            } else if (xhr.status === 500) {
+                sendAlert('error', 'Nie udało się utworzyć konta.');
+                console.log('[CMS] Nie udało się utworzyć konta. Login może być zajęty.');
+            } else {
+                sendAlert('error', 'Wystąpił błąd podczas logowania.');
+                console.log('[CMS] Wystąpił błąd.');
+            }
+        }
+    };
+
+    xhr.open('POST', site_url + '/backend/signup.php', true);
+    xhr.send(formData);
+}
+
+
 function logoutUser() {
     event.preventDefault();
     let xhr = new XMLHttpRequest();
