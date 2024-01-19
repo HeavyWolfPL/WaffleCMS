@@ -18,7 +18,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 <script src="frontend/posts.js" defer></script>
 
 <?php
-    $database = connectToDB($database_info['host'], $database_info['username'], $database_info['password'], $database_info['database']);
+    if (!isset($database)) $database = connectToDB($database_info['host'], $database_info['username'], $database_info['password'], $database_info['database']);
+    
     if (!isset($_SESSION['user']) || empty($_SESSION['user']) || !isset($_SESSION['user']['id']) || empty($_SESSION['user']['id'])) {
         redirect('index.php');
     }
