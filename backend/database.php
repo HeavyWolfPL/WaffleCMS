@@ -456,7 +456,6 @@ function updateUserData($conn, $user_id, $data) {
     }
 
     $result = $conn->query($sql);
-    logError(gettype($result) . " - " . $sql, 'error', 'updateUserData', 'database');
     if ($result) {
         return true;
     } else {
