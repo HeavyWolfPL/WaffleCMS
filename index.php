@@ -127,7 +127,7 @@ session_start();
                         include __DIR__ . "/backend/signup.php";
         echo "      </div>
                 </div>
-                <button class='btn' onclick='flipCard()'>
+                <button id='flipCardBtn' class='btn' onclick='flipCard()'>
                     <span class='btn_icon'>
                         <i class='fa-solid fa-rotate'></i>
                     </span>
