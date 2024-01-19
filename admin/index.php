@@ -37,64 +37,21 @@ require_once dirname(__DIR__) .  "/backend/database.php";
 <div id="alertContainer"></div> <!-- Alert Container, used by functions.js::sendAlert() / backend/functions.php::sendAlert() -->
 
 <header>
-
     <a href="<?php echo $site_url ?>"><div id="header-logo" class="logo-container">
         <img src="https://i.imgur.com/g3a3tLo.png" alt="Logo WaffleCMS">WaffleCMS
     </div></a>
-
-    <div id="header-buttons" class="flex-space-around">
-        <button class="btn link"><a href="backend/logout.php">
-            <span class="btn_icon">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </span>
-            <span class="btn_text">Wyloguj</span>
-        </a></button>
-    </div>
-
 </header>
 
 <main>
-
-    <?php
-
-    session_start();
-
-    $database = connectToDB($database_info['host'], $database_info['username'], $database_info['password'], $database_info['database']);
-
-    if (isset($_SESSION['user']) && isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in'] == true) {        
-        include dirname(__DIR__) . '/main.php';
-    } else {
-        echo "
-            <div class='flip-card'>
-                <div class='flip-card-inner'>
-                    <div class='flip-card-front'>";
-                        include dirname(__DIR__) . "/backend/login.php";
-        echo "      </div>
-                    <div class='flip-card-back'>";
-                        include dirname(__DIR__) . "/backend/signup.php";
-        echo "      </div>
-                </div>
-                <button class='btn' onclick='flipCard()'>
-                    <span class='btn_icon'>
-                        <i class='fa-solid fa-rotate'></i>
-                    </span>
-                    <span class='btn_text'>Zarejestruj się</span>
-                </button>
-            </div>";
-    }
-    ?>
-
-
+    <p class='error'>Brak danych.</p>
 </main>
 
 <footer>
-
     <!-- Co ty tutaj robisz? -->
     <span id="copyright" class="copyright-container">
         <i class="fa-regular fa-copyright"></i>
         2023 Wafelowski.pl
     </span>
-
 </footer>
     
 </body>
