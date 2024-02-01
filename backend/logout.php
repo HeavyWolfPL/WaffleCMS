@@ -12,7 +12,9 @@ require_once __DIR__ . "/config.php";
 
 <?php
 
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ajax']) && $_POST['ajax'] == 'true') {
     foreach ($_GET as $key => $value) {

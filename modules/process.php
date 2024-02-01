@@ -13,11 +13,11 @@ require_once dirname(__DIR__) . "/backend/database.php";
 
 <?php
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (session_status() !== PHP_SESSION_ACTIVE) {
-        session_start();
-    }
-    
     $database = connectToDB($database_info['host'], $database_info['username'], $database_info['password'], $database_info['database']);
     if (isset($_POST['updateTheme']) && isset($_POST['currentTheme']) && !empty($_POST['currentTheme'])) {
         
