@@ -45,8 +45,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     <link rel="shortcut icon" href="https://i.imgur.com/g3a3tLo.png" type="image/x-icon">
 
     <!-- JS -->
-    <script src="frontend/functions.js"></script>
-    <script src="frontend/ajax.js"></script>
+    <script src="frontend/functions.js" defer></script>
+    <script src="frontend/ajax.js" defer></script>
 
 </head>
 <body>
