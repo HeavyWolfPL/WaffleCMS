@@ -379,6 +379,15 @@ function addPost($conn, $user_id, $title, $content, $file) {
             echo sendAlert('error', 'Plik jest za duży. Limit wynosi 5MB.');
             throw new Exception("Plik jest za duży. Limit wynosi 5MB.");
         } else {
+            if (!file_exists(dirname(__DIR__) . '/uploads/')) {
+                try {
+                    mkdir(dirname(__DIR__) . '/uploads/', 0770, true);
+                } catch (Exception $e) {
+                    logError("Error creating directory: " . dirname(__DIR__) . '/uploads/', 'error', 'addPost()', 'Database');
+                    return false;
+                }
+            }
+            
             $allowed_types = array('image/jpeg', 'image/png', 'video/mp4', 'video/webm');
             if (!in_array($file_type, $allowed_types)) {
                 http_response_code(400);
