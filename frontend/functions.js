@@ -221,3 +221,22 @@ function togglePassword(input_id, icon_id) {
         passwordIcon.classList.remove('active');
     }
 }
+
+function previewImage(input) {
+    var fileInput = input;
+    var avatarPreview = document.getElementById('avatar_preview');
+
+    if (fileInput.files && fileInput.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            avatarPreview.src = e.target.result;
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        // data-default_file
+        default_file = avatarPreview.getAttribute('data-default_file');
+        avatarPreview.src = default_file;
+    }
+}
