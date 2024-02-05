@@ -33,9 +33,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 ?>
 
 <?php 
-    logError('Request POST but no data. POST:' . var_export($_POST, true), 'error', 'addComment()', 'Website'); // DEBUG
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ajax']) && $_POST['ajax'] == 'true') {
-
         if (isset($_POST['addComment']) && $_POST['addComment'] == 'true' && isset($_POST['post_id']) && isset($_POST['commentContent']) && isset($_POST['user_id'])) {
             addComment($database, $_POST['post_id'], $_POST['user_id'], $_POST['commentContent']);
 
